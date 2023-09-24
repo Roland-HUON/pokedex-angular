@@ -1,3 +1,4 @@
+This project cannot be see as a online website. You need to get a copy of thoses scripts and run in your terminal with the `ng serve` command.
 # NgPokemonApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
