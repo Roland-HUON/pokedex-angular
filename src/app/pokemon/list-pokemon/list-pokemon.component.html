@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+
+        <app-search-pokemon></app-search-pokemon>
+        
+        <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
+            <!-- toujours utilisé let...(nom variable(quelconque))of...(tableau) pour *ngFor(boucle) -->
+            <!-- m4 si écran moyen pokémon prend 4/12 et si écran petit s6 pokémon prend 6/12 -->
+            <div (click)="goToPokemon(pokemon)" class="card horizontal" pkmnBorderCard>
+                <div class="card-image">
+                    <!-- image building -->
+                    <img [src]="pokemon.picture">
+                    <!-- syntaxe des crochets pour lier l'attribut source de l'image à l'image du pokémon(la méthode classique marche aussi) -->
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{pokemon.name}}</p>
+                        <p><small>{{pokemon.created | date:"dd/MM/yyyy"}}</small></p> 
+                        <!-- | date = (rendre plus agréable) pipe date (pour formaté les dates (existent d'autres pipes)) -->
+                        <span 
+                            *ngFor="let type of pokemon.types" 
+                            class="{{ type | pokemonTypeColor}}"
+                        >
+                            {{ type }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a 
+    class="btn-floating btn-large waves-effect waves-light blue z-depth-3"
+    style="position: fixed; bottom: 25px; right:25px;"
+    routerLink="/pokemon/add">
+    ➕
+</a>
+
+
+
+
+
+
+    <!-- #input permet de toucher à toutes les propriétés de ici l'input dans le DOM -->
+<!-- <input
+    #input
+    (keyup.enter)="selectPokemon(input.value)"
+    type="number"
+>
+<p *ngIf="pokemonSelected" >
+    *= directive structurelle
+    Vous avez sélectionné le pokémon : {{ pokemonSelected.name }}.
+</p>
+<p *ngIf="!pokemonSelected" >
+    *= directive structurelle
+    Aucun pokémon n'a été trouvé.
+</p> -->
+
+
+<!-- <div class="row">
+    <div *ngFor="let pokemon of pokemonList" class="col s4">
+        <div class="card-panel">
+            
+        <div>
+            <img src="{{pokemon.picture}}" alt="{{pokemon.name}}">
+        </div>
+        <div>
+            <p class="pokemonName">{{pokemon.name}}</p>
+            <p class="pokemonCreation"><strong>{{pokemon.created}}</strong></p>
+        </div>
+        </div>
+    </div>    
+</div> -->
