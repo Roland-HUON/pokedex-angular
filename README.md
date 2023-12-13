@@ -1,3 +1,4 @@
+This is a reproduction of a pokedex.
 This project cannot be see as a online website. You need to get a copy of thoses scripts and run in your terminal with the `ng serve` command.
 # NgPokemonApp
 
